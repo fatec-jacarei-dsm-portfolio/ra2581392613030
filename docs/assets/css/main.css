@@ -57,7 +57,7 @@
 
 .section-home{
     height: 100vh;
-    background-image: url('../img/fundo\ ondas.gif');
+    background-image: url('/docs/assets/img/fundo\ ondas.gif');
     background-size: cover;
 }
 
