@@ -1,0 +1,36 @@
+*{
+    box-sizing:  border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* estilo geral */
+body{
+    /* background-color: rgb(45, 5, 99); */
+    height: 100vh;
+    background-image: url('../img/fundo\ ondas.gif');
+    background-size: cover;
+}
+
+.separacaoCima{
+    background: #000000;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.959) 7%, rgba(0, 0, 0, 0.813) 50%, rgba(0, 0, 0, 0.068) 100%);
+    height: 15vh;
+}
+
+.separacaoBaixo{
+    /* background: #000000;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.603) 7%, rgba(19, 9, 31, 0.219) 50%, rgba(158, 19, 189, 0.021) 100%);*/
+    height: 15vh;
+    background-color: #000000;
+
+}
+
+.separacaoMeio{
+    background: #000000;
+    background: linear-gradient(180deg, rgb(9, 1, 12) 7%, rgba(29, 11, 49, 0.42) 50%, rgba(0, 0, 0, 0.89) 100%);
+    height: 15vh;
+}
