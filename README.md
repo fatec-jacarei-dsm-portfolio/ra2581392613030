@@ -9,6 +9,6 @@ Repositório do aluno KAUA CRISTIAN SANTOS DE PAULA DA SILVA.
 
 **Portfólio Online**
 
-🔗 [Acesse o Portfólio](L[INK_PARA_PORTFOLIO](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392613030/))
+🔗 [Acesse o Portfólio]([(https://fatec-jacarei-dsm-portfolio.github.io/ra2581392613030/)])
 
 ---
