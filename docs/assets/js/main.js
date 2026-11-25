@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // JS carregou: libera as animações (sem JS, tudo aparece normalmente)
 document.documentElement.classList.remove('no-js');
 
@@ -125,7 +124,6 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 
 // ================= ANO NO RODAPÉ =================
 document.getElementById('year').textContent = new Date().getFullYear();
-=======
 const bgVideo = document.getElementById('bg-contact');
 let reverseInternal;
 
@@ -146,11 +144,11 @@ if (bgVideo) {
 
 // ======= header ========== //
 
-const header = document.querySelector('.header');
+const heade = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
-    header.classList.add('scrolled');
+    heade.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
@@ -163,4 +161,14 @@ const card = document.getElementById('github-link');
 card.addEventListener('click', () => {
     window.open('https://github.com/KauaCristian-Dev', '_blank');
 });
->>>>>>> 0544b18f91ef21fe4ad34fe9deb5e459b85768c3
+
+// hover img project
+
+document.querySelectorAll('.project-cover img[data-hover]').forEach(img => {
+    const original = img.src;
+    const hover = img.dataset.hover;
+    const card = img.closest('.project-card');
+
+    card.addEventListener('mouseenter', () => img.src = hover);
+    card.addEventListener('mouseleave', () => img.src = original);
+});
