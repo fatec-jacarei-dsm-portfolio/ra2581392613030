@@ -153,22 +153,3 @@ window.addEventListener('scroll', () => {
     header.classList.remove('scrolled');
   }
 });
-
-// ========== link ========
-
-const card = document.getElementById('github-link');
-
-card.addEventListener('click', () => {
-    window.open('https://github.com/KauaCristian-Dev', '_blank');
-});
-
-// hover img project
-
-document.querySelectorAll('.project-cover img[data-hover]').forEach(img => {
-    const original = img.src;
-    const hover = img.dataset.hover;
-    const card = img.closest('.project-card');
-
-    card.addEventListener('mouseenter', () => img.src = hover);
-    card.addEventListener('mouseleave', () => img.src = original);
-});
