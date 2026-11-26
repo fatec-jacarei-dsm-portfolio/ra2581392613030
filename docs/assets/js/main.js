@@ -1,6 +1,44 @@
 // JS carregou: libera as animações (sem JS, tudo aparece normalmente)
 document.documentElement.classList.remove('no-js');
 
+// ================= TEMA CLARO / ESCURO =================
+// O tema inicial é aplicado por um script no <head> do index.html.
+// Aqui ficam apenas o botão de troca e o salvamento da escolha.
+const themeToggle = document.getElementById('theme-toggle');
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const root = document.documentElement;
+
+function syncThemeUI(theme) {
+    const isLight = theme === 'light';
+    themeToggle.setAttribute('aria-label', isLight ? 'Mudar para tema escuro' : 'Mudar para tema claro');
+    if (themeColorMeta) themeColorMeta.setAttribute('content', isLight ? '#f7f4fd' : '#07040c');
+}
+
+function setTheme(theme, save) {
+    // transição suave só durante a troca
+    root.classList.add('theme-anim');
+    root.setAttribute('data-theme', theme);
+    syncThemeUI(theme);
+    if (save) {
+        try { localStorage.setItem('theme', theme); } catch (e) { }
+    }
+    setTimeout(() => root.classList.remove('theme-anim'), 450);
+}
+
+syncThemeUI(root.getAttribute('data-theme'));
+
+themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    setTheme(next, true);
+});
+
+// se a pessoa nunca escolheu, acompanha a mudança do sistema
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (err) { }
+    if (!saved) setTheme(e.matches ? 'light' : 'dark', false);
+});
+
 // ================= CABEÇALHO =================
 const header = document.getElementById('header');
 const menuToggle = document.getElementById('menu-toggle');

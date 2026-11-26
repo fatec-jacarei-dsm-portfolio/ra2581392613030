@@ -5,13 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfólio de Kauã Cristian — desenvolvedor full-stack em formação (DSM - FATEC).">
+    <meta name="theme-color" content="#07040c">
     <title>Kauã | Portfólio</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <!-- aplica o tema salvo ANTES de pintar a página (evita o "flash" de tema errado) -->
+    <script>
+        (function () {
+            var theme;
+            try { theme = localStorage.getItem('theme'); } catch (e) { }
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/main.js" defer></script>
@@ -22,10 +29,6 @@
     <header class="header" id="header">
         <a href="#home" class="logo">Kaka<span>.</span></a>
 
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
-            <span></span><span></span><span></span>
-        </button>
-
         <nav class="nav" id="nav">
             <a href="#home">Início</a>
             <a href="#sobre">Sobre</a>
@@ -33,6 +36,23 @@
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
         </nav>
+
+        <div class="header-actions">
+            <!-- Botão de tema: o JS troca o aria-label conforme o tema atual -->
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Mudar para tema claro">
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+                </svg>
+            </button>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     <main>

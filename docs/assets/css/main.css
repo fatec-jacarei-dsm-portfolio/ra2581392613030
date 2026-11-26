@@ -1,8 +1,8 @@
-
 /* =========================================================
    VARIÁVEIS (cores, fontes e medidas usadas no site todo)
    ========================================================= */
 :root {
+    color-scheme: dark;
     --bg: #07040c;
     --bg-soft: #0f0a18;
     --surface: rgba(28, 16, 44, 0.6);
@@ -18,13 +18,152 @@
     --text: #f2ecff;
     --text-muted: #a99cc2;
 
-    --font-title: "Fraunces", Georgia, serif;
-    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    /* cores que mudam entre os temas */
+    --bg-glow-1: rgba(124, 58, 237, 0.22);
+    --bg-glow-2: rgba(91, 33, 182, 0.18);
+    --bg-glow-3: rgba(155, 92, 255, 0.12);
+    --header-bg: rgba(20, 10, 34, 0.55);
+    --header-bg-scrolled: rgba(12, 6, 22, 0.85);
+    --nav-bg: rgba(12, 6, 22, 0.96);
+    --btn-bg: rgba(20, 10, 34, 0.9);
+    --skill-bg: rgba(7, 4, 12, 0.4);
+    --track-bg: rgba(255, 255, 255, 0.08);
+    --link-hover: #fff;
+    --footer-end: #000;
+    --hero-overlay: linear-gradient(180deg, rgba(7, 4, 12, 0.2) 0%, rgba(7, 4, 12, 0.6) 70%, var(--bg) 100%);
+
+    --font-title: Georgia, "Times New Roman", Times, serif; /* fonte nativa */
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* fonte nativa */
 
     --radius: 20px;
     --radius-sm: 12px;
     --container: 1140px;
     --header-h: 50px;
+}
+
+/* =========================================================
+   TEMA CLARO
+   O tema é definido pelo atributo data-theme no <html>.
+   Aqui só trocamos os valores das variáveis.
+   ========================================================= */
+/* Paleta confortável: fundo lavanda acinzentado (sem branco puro), cards um tom mais
+   claros que o fundo e elementos internos um tom mais escuros, para dar profundidade. */
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #e5e0ef;
+    --bg-soft: #d9d2e8;
+    --surface: rgba(243, 240, 250, 0.9);
+    --surface-solid: #f1eef9;
+    --border: rgba(60, 30, 120, 0.2);
+    --border-strong: rgba(60, 30, 120, 0.42);
+
+    --purple: #6d3fd6;
+    --purple-light: #5b2fc0;
+    --purple-dark: #4c1d95;
+    --glow: rgba(91, 47, 192, 0.22);
+
+    --text: #1f1735;
+    --text-muted: #4d4366;
+
+    --bg-glow-1: rgba(139, 105, 220, 0.2);
+    --bg-glow-2: rgba(120, 85, 200, 0.14);
+    --bg-glow-3: rgba(109, 63, 214, 0.1);
+    --header-bg: rgba(236, 232, 246, 0.78);
+    --header-bg-scrolled: rgba(236, 232, 246, 0.94);
+    --nav-bg: rgba(238, 234, 247, 0.98);
+    --btn-bg: rgba(241, 238, 249, 0.95);
+    --skill-bg: rgba(91, 47, 192, 0.07);
+    --track-bg: rgba(60, 30, 120, 0.18);
+    --link-hover: #3b1584;
+    --footer-end: #d2c8e4;
+    --hero-overlay: linear-gradient(180deg, rgba(229, 224, 239, 0.5) 0%, rgba(229, 224, 239, 0.82) 70%, var(--bg) 100%);
+
+    --accent-soft: rgba(91, 47, 192, 0.12);
+    --shadow-card: 0 10px 28px -16px rgba(50, 25, 110, 0.45), 0 1px 2px rgba(50, 25, 110, 0.08);
+}
+
+/* detalhes só do tema claro: sombras suaves e elementos internos mais marcados */
+:root[data-theme="light"] .card,
+:root[data-theme="light"] .timeline-item,
+:root[data-theme="light"] .cert-card,
+:root[data-theme="light"] .project-card {
+    box-shadow: var(--shadow-card);
+}
+
+:root[data-theme="light"] .header {
+    box-shadow: 0 8px 24px -14px rgba(50, 25, 110, 0.4);
+}
+
+:root[data-theme="light"] .nav a:hover,
+:root[data-theme="light"] .nav a.active,
+:root[data-theme="light"] .theme-toggle:hover,
+:root[data-theme="light"] .btn-ghost:hover {
+    background: var(--accent-soft);
+}
+
+:root[data-theme="light"] .eyebrow {
+    background: var(--accent-soft);
+    color: var(--purple-dark);
+}
+
+:root[data-theme="light"] .tags li {
+    background: var(--accent-soft);
+    color: var(--purple-dark);
+    border: 1px solid var(--border);
+}
+
+:root[data-theme="light"] .cert-icon {
+    background: rgba(91, 47, 192, 0.16);
+}
+
+:root[data-theme="light"] .project-contrib {
+    background: rgba(91, 47, 192, 0.08);
+}
+
+:root[data-theme="light"] .project-cover {
+    background:
+        radial-gradient(circle at 50% 60%, rgba(109, 63, 214, 0.28), transparent 65%),
+        var(--bg-soft);
+}
+
+:root[data-theme="light"] .skill img,
+:root[data-theme="light"] .skill-icons img {
+    background: #faf8ff;
+    border: 1px solid var(--border);
+}
+
+:root[data-theme="light"] .skill {
+    border-color: var(--border-strong);
+}
+
+:root[data-theme="light"] .btn-ghost {
+    border-color: var(--border-strong);
+    color: var(--purple-dark);
+}
+
+:root[data-theme="light"] .timeline-item::before {
+    box-shadow: 0 0 0 4px var(--bg), 0 0 10px var(--glow);
+}
+
+:root[data-theme="light"] .footer {
+    border-top-color: var(--border-strong);
+}
+
+:root[data-theme="light"] .about-photo,
+:root[data-theme="light"] .footer-img {
+    box-shadow: var(--shadow-card);
+}
+
+/* transição suave só no momento da troca de tema (classe colocada pelo JS) */
+.theme-anim,
+.theme-anim *,
+.theme-anim *::before,
+.theme-anim *::after {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease !important;
 }
 
 /* =========================================================
@@ -51,9 +190,9 @@ body {
     background-color: var(--bg);
     /* brilhos roxos de fundo */
     background-image:
-        radial-gradient(60rem 40rem at 85% -10%, rgba(124, 58, 237, 0.22), transparent 60%),
-        radial-gradient(50rem 40rem at -10% 40%, rgba(91, 33, 182, 0.18), transparent 60%),
-        radial-gradient(50rem 40rem at 110% 90%, rgba(155, 92, 255, 0.12), transparent 60%);
+        radial-gradient(60rem 40rem at 85% -10%, var(--bg-glow-1), transparent 60%),
+        radial-gradient(50rem 40rem at -10% 40%, var(--bg-glow-2), transparent 60%),
+        radial-gradient(50rem 40rem at 110% 90%, var(--bg-glow-3), transparent 60%);
     background-attachment: fixed;
     overflow-x: hidden;
 }
@@ -180,6 +319,7 @@ h3 {
 }
 
 .btn-primary {
+    color: #fff;
     background: linear-gradient(135deg, var(--purple), var(--purple-dark));
     box-shadow: 0 10px 30px -10px var(--glow);
 }
@@ -212,7 +352,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(20, 10, 34, 0.55);
+    background: var(--header-bg);
     border: 1px solid var(--border);
     border-radius: 999px;
     backdrop-filter: blur(16px);
@@ -223,7 +363,7 @@ h3 {
 .header.scrolled {
     top: 10px;
     width: min(100% - 2rem, 820px);
-    background: rgba(12, 6, 22, 0.85);
+    background: var(--header-bg-scrolled);
 }
 
 .logo {
@@ -239,6 +379,63 @@ h3 {
 .nav {
     display: flex;
     gap: 0.25rem;
+    margin-left: auto;
+}
+
+/* grupo à direita do header: botão de tema + hambúrguer */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.75rem;
+}
+
+/* botão de trocar tema */
+.theme-toggle {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    color: var(--text);
+    transition: background-color 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.theme-toggle:hover {
+    background: rgba(155, 92, 255, 0.15);
+    border-color: var(--purple-light);
+    transform: rotate(12deg);
+}
+
+.theme-toggle svg {
+    grid-area: 1 / 1;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: opacity 0.3s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* tema escuro: mostra o sol (clicar leva ao claro) */
+.theme-toggle .icon-moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+/* tema claro: mostra a lua (clicar leva ao escuro) */
+:root[data-theme="light"] .theme-toggle .icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+:root[data-theme="light"] .theme-toggle .icon-moon {
+    opacity: 1;
+    transform: none;
 }
 
 .nav a {
@@ -298,7 +495,7 @@ h3 {
     align-items: center;
     padding: calc(var(--header-h) + 3rem) 0 4rem;
     background:
-        linear-gradient(180deg, rgba(7, 4, 12, 0.2) 0%, rgba(7, 4, 12, 0.6) 70%, var(--bg) 100%),
+        var(--hero-overlay),
         url("../img/project-bg.jpeg") center / cover no-repeat;
 }
 
@@ -503,7 +700,7 @@ h3 {
     padding: 0.75rem 1rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    background: rgba(7, 4, 12, 0.4);
+    background: var(--skill-bg);
     transition: border-color 0.3s, transform 0.3s;
 }
 
@@ -536,7 +733,7 @@ h3 {
 .skill-bar {
     height: 6px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--track-bg);
     overflow: hidden;
 }
 
@@ -866,7 +1063,7 @@ h3 {
 }
 
 .project-links a:hover {
-    color: #fff;
+    color: var(--link-hover);
 }
 
 .project-card--soon {
@@ -890,9 +1087,9 @@ h3 {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(20, 10, 34, 0.9);
+    background: var(--btn-bg);
     border: 1px solid var(--border-strong);
-    transition: background-color 0.25s, opacity 0.25s, transform 0.25s;
+    transition: background-color 0.25s, color 0.25s, opacity 0.25s, transform 0.25s;
 }
 
 .carousel-btn svg {
@@ -906,6 +1103,7 @@ h3 {
 }
 
 .carousel-btn:hover:not(:disabled) {
+    color: #fff;
     background: var(--purple);
     transform: scale(1.08);
 }
@@ -956,7 +1154,7 @@ h3 {
 .footer {
     padding-top: clamp(3rem, 8vw, 5rem);
     border-top: 1px solid var(--border);
-    background: linear-gradient(180deg, var(--bg) 0%, #000 100%);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--footer-end) 100%);
 }
 
 .footer-grid {
@@ -998,6 +1196,7 @@ h3 {
 }
 
 .socials a:hover {
+    color: #fff;
     background: var(--purple);
     transform: translateY(-4px);
     box-shadow: 0 10px 25px -8px var(--glow);
@@ -1085,6 +1284,10 @@ h3 {
         display: flex;
     }
 
+    .header-actions {
+        margin-left: auto;
+    }
+
     .nav {
         position: absolute;
         top: calc(100% + 10px);
@@ -1092,7 +1295,7 @@ h3 {
         right: 0;
         flex-direction: column;
         padding: 0.75rem;
-        background: rgba(12, 6, 22, 0.96);
+        background: var(--nav-bg);
         border: 1px solid var(--border);
         border-radius: var(--radius);
         opacity: 0;
