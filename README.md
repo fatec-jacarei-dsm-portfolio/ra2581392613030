@@ -15,6 +15,9 @@ Repositório do aluno KAUA CRISTIAN SANTOS DE PAULA DA SILVA.
 
 Vídeos de Apresentação
 
-**🎤 2DSM - [Vídeo](https://youtu.be/ndKGJl18xos?si=0lJIkLmnnHHXy6RP)
-**🎤 4DSM - Vídeo
-**🎤 6DSM - Vídeo
+🎤 2DSM - [Vídeo](https://youtu.be/ndKGJl18xos?si=0lJIkLmnnHHXy6RP)
+
+🎤 4DSM - Vídeo
+
+🎤 6DSM - Vídeo
+
